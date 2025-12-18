@@ -1,6 +1,6 @@
 :root {
     --bg: #fff7f0;
-    --text: #734034;
+    --text: #d4523a;
     --muted: #9a6a58;
     --border: #e6cfc3;
     --card: #ffffff;
@@ -20,12 +20,21 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
+    padding-top: 56px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
 }
 
 .container {
     max-width: 1000px;
     margin: auto;
     padding: 24px 16px;
+    position: relative;
+    z-index: 1;
 }
 
 /* ---------- REVEAL ---------- */
@@ -51,16 +60,34 @@ body {
 
 .hero {
     text-align: center;
-    padding: 64px 16px 48px;
+    padding: 96px 16px 72px;
 }
 
-.hero h1 {
-    font-size: 2.6rem;
-    margin-bottom: 12px;
+.hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
 }
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.tagline {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    font-size: 1rem;
+    color: #8a5a4a;
+}
+
+/* ---------- GRADIENT TEXT ---------- */
 
 .gradient-text {
-    background: linear-gradient(90deg, #734034, #b86a4a, #734034);
+    background: linear-gradient(39deg, #d4523a, #ff892e, #d4523a);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -73,33 +100,16 @@ body {
     100% { background-position: 0% center; }
 }
 
-.subtitle {
-    font-size: 1.15rem;
-    color: var(--muted);
-    margin-bottom: 18px;
-}
-
-.tagline {
-    max-width: 680px;
-    margin: 0 auto 32px;
-}
-
 /* ---------- CTA ---------- */
 
 .cta {
     display: flex;
     justify-content: center;
     gap: 18px;
-    flex-wrap: wrap;
 }
 
 .cta img {
     height: 56px;
-}
-
-.cta .disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -169,11 +179,15 @@ section h2 {
 
 footer {
     margin-top: 72px;
-    padding-top: 24px;
+	padding: 24px 16px 0px;
     border-top: 1px solid var(--border);
-    text-align: center;
     font-size: 0.85rem;
     color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
 }
 
 footer a {
@@ -185,4 +199,106 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    footer > div:last-child {
+        text-align: right;
+    }
+}
+
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 247, 240, 0.85);
+    backdrop-filter: blur(5px) saturate(1.05);
+    -webkit-backdrop-filter: blur(10px) saturate(1.05);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.nav-cta {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--bg);
+    background: var(--text);
+    padding: 4px 14px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+/* ---------- BACKGROUND SPOTS ---------- */
+
+.bg-spots {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bg-spot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+.bg-spot.one {
+    background: #e6a57e;
+    width: 320px;
+    height: 320px;
+    top: -80px;
+    left: -80px;
+}
+
+.bg-spot.two {
+    background: #d8b08c;
+    width: 320px;
+    height: 320px;
+    top: 120px;
+    right: -100px;
+}
+
+.bg-spot.three {
+    background: #FFB300;
+    width: 420px;
+    height: 420px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.25;
+}
+
+@media (max-width: 768px) {
+    .bg-spot {
+        filter: blur(90px);
+        opacity: 0.22;
+    }
 }
