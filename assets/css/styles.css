@@ -3,7 +3,7 @@
     --text: #d4523a;
     --muted: #9a6a58;
     --border: #e6cfc3;
-    --card: #ffffff;
+    --card: rgba(255, 247, 240, 0.95);
 }
 
 /* ---------- BASE ---------- */
@@ -302,3 +302,4 @@ footer a:hover {
         opacity: 0.22;
     }
 }
+
