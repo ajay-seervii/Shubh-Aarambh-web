@@ -12,9 +12,8 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    min-height: 100%;
+html, body {
+    height: 100%;
 }
 
 body {
@@ -25,6 +24,11 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
+
+    /* 🔑 CRITICAL FIX */
+    display: flex;
+    flex-direction: column;
+
     padding-top: 56px;
 }
 
@@ -34,13 +38,17 @@ body {
     }
 }
 
+/* Main content area */
 .container {
     max-width: 1000px;
     margin: auto;
     padding: 24px 16px;
     position: relative;
     z-index: 1;
-    min-height: calc(100vh - 56px);
+
+    /* 🔑 THIS keeps footer visible */
+    flex: 1;
+    width: 100%;
 }
 
 /* ---------- REVEAL ---------- */
@@ -184,7 +192,6 @@ section h2 {
 /* ---------- FOOTER ---------- */
 
 footer {
-    margin-top: 72px;
     padding: 24px 16px 0;
     border-top: 1px solid var(--border);
     font-size: 0.85rem;
