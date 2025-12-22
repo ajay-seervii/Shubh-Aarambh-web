@@ -12,10 +12,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-}
-
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont,
@@ -24,10 +20,6 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
-
-    display: flex;
-    flex-direction: column;
-
     padding-top: 56px;
 }
 
@@ -43,30 +35,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 24px 16px;
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    width: 100%;
 }
-
-/* ---------- REVEAL ---------- */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-        opacity 0.8s cubic-bezier(0.16,1,0.3,1),
-        transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
 
 /* ---------- HERO ---------- */
 
@@ -79,7 +48,6 @@ body {
     font-size: clamp(2.6rem, 6vw, 4.2rem);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
     margin-bottom: 18px;
 }
 
@@ -130,10 +98,6 @@ section {
     margin-top: 64px;
 }
 
-section:last-of-type {
-    margin-bottom: 24px;
-}
-
 section h2 {
     text-align: center;
     font-size: 1.6rem;
@@ -153,12 +117,6 @@ section h2 {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 18px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 32px rgba(115, 64, 52, 0.14);
 }
 
 .card h3 {
@@ -198,10 +156,7 @@ section h2 {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
     background: rgba(255, 247, 240, 0.85);
-    backdrop-filter: blur(5px) saturate(1.05);
-    -webkit-backdrop-filter: blur(10px) saturate(1.05);
     border-bottom: 1px solid var(--border);
 }
 
@@ -210,124 +165,56 @@ section h2 {
     margin: auto;
     padding: 14px 16px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav-title {
-    font-size: 1.15rem;
     font-weight: 600;
 }
 
 .nav-cta {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--bg);
     background: var(--text);
+    color: var(--bg);
     padding: 4px 14px;
     border-radius: 15px;
     text-decoration: none;
+    font-size: 0.9rem;
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- FOOTER (SIMPLE & CORRECT) ---------- */
 
 footer {
-    width: 100%;
     border-top: 1px solid var(--border);
-    padding: 20px 0;
-    font-size: 0.85rem;
-    color: var(--muted);
-    background: transparent;
+    margin-top: 48px;
+    padding: 16px 0;
+    width: 100%;
 }
 
 .footer-inner {
     max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 16px;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 8px;
     text-align: center;
+
+    font-size: 0.85rem;
+    color: var(--muted);
 }
 
-footer a {
+.footer-inner a {
     color: var(--text);
     text-decoration: none;
-    margin: 0 8px;
-    font-weight: 500;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    margin-left: 8px;
 }
 
 @media (min-width: 768px) {
     .footer-inner {
         flex-direction: row;
-        align-items: center;
-    }
-
-    .footer-inner > div {
-        flex: 1;
-    }
-
-    .footer-inner > div:first-child {
+        justify-content: space-between;
         text-align: left;
-    }
-
-    .footer-inner > div:last-child {
-        text-align: right;
-    }
-}
-
-/* ---------- BACKGROUND SPOTS ---------- */
-
-.bg-spots {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.bg-spot {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.35;
-}
-
-.bg-spot.one {
-    background: #e6a57e;
-    width: 320px;
-    height: 320px;
-    top: -80px;
-    left: -80px;
-}
-
-.bg-spot.two {
-    background: #d8b08c;
-    width: 320px;
-    height: 320px;
-    top: 120px;
-    right: -100px;
-}
-
-.bg-spot.three {
-    background: #FFB300;
-    width: 420px;
-    height: 420px;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    opacity: 0.25;
-}
-
-@media (max-width: 768px) {
-    .bg-spot {
-        filter: blur(90px);
-        opacity: 0.22;
     }
 }
