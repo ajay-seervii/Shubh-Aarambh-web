@@ -25,7 +25,6 @@ body {
     color: var(--text);
     line-height: 1.6;
 
-    /* 🔑 CRITICAL FIX */
     display: flex;
     flex-direction: column;
 
@@ -38,15 +37,14 @@ body {
     }
 }
 
-/* Main content area */
+/* ---------- CONTAINER ---------- */
+
 .container {
     max-width: 1000px;
-    margin: auto;
+    margin: 0 auto;
     padding: 24px 16px;
     position: relative;
     z-index: 1;
-
-    /* 🔑 THIS keeps footer visible */
     flex: 1;
     width: 100%;
 }
@@ -132,6 +130,10 @@ section {
     margin-top: 64px;
 }
 
+section:last-of-type {
+    margin-bottom: 24px;
+}
+
 section h2 {
     text-align: center;
     font-size: 1.6rem;
@@ -189,56 +191,6 @@ section h2 {
     color: var(--muted);
 }
 
-/* ---------- FOOTER ---------- */
-
-/* ---------- FOOTER ---------- */
-
-footer {
-    width: 100%;
-    border-top: 1px solid var(--border);
-    margin-top: 32px;              /* 🔥 reduced gap */
-    padding: 20px 0;
-    font-size: 0.85rem;
-    color: var(--muted);
-    background: transparent;
-}
-
-.footer-inner {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 16px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-align: center;
-}
-
-footer a {
-    color: var(--text);
-    text-decoration: none;
-    margin: 0 8px;
-    font-weight: 500;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-@media (min-width: 768px) {
-    .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-
-    .footer-inner > div:last-child {
-        text-align: right;
-    }
-}
-
-
 /* ---------- NAVBAR ---------- */
 
 .navbar {
@@ -275,6 +227,59 @@ footer a:hover {
     padding: 4px 14px;
     border-radius: 15px;
     text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+    background: transparent;
+}
+
+.footer-inner {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--text);
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .footer-inner {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer-inner > div {
+        flex: 1;
+    }
+
+    .footer-inner > div:first-child {
+        text-align: left;
+    }
+
+    .footer-inner > div:last-child {
+        text-align: right;
+    }
 }
 
 /* ---------- BACKGROUND SPOTS ---------- */
@@ -326,4 +331,3 @@ footer a:hover {
         opacity: 0.22;
     }
 }
-
