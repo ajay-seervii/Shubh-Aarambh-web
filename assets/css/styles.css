@@ -191,20 +191,28 @@ section h2 {
 
 /* ---------- FOOTER ---------- */
 
+/* ---------- FOOTER ---------- */
+
 footer {
-    padding: 24px 16px 0;
+    width: 100%;
     border-top: 1px solid var(--border);
+    margin-top: 32px;              /* 🔥 reduced gap */
+    padding: 20px 0;
     font-size: 0.85rem;
     color: var(--muted);
+    background: transparent;
+}
+
+.footer-inner {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 16px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     text-align: center;
-
-    position: relative;
-    z-index: 2;
 }
 
 footer a {
@@ -219,17 +227,17 @@ footer a:hover {
 }
 
 @media (min-width: 768px) {
-    footer {
+    .footer-inner {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
         text-align: left;
     }
 
-    footer > div:last-child {
+    .footer-inner > div:last-child {
         text-align: right;
     }
 }
+
 
 /* ---------- NAVBAR ---------- */
 
@@ -318,3 +326,4 @@ footer a:hover {
         opacity: 0.22;
     }
 }
+
