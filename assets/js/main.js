@@ -16,6 +16,7 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+/*
 // Load features from JSON
 fetch('assets/raw/features.json')
     .then(res => res.json())
@@ -38,3 +39,4 @@ fetch('assets/raw/features.json')
     .catch(err => {
         console.error('Failed to load features.json', err);
     });
+*/
